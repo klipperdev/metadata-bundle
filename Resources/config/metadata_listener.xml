@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="klipper_metadata.subscriber.action_configurations"
+                 class="Klipper\Component\Metadata\Listener\ConfigurationsSubscriber"
+                 public="true">
+            <tag name="kernel.event_subscriber" />
+            <argument type="service" id="klipper_metadata.manager" />
+        </service>
+    </services>
+</container>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="klipper_metadata.warmer" class="Klipper\Component\Metadata\CacheWarmer\MetadatasCacheWarmer">
+            <tag name="container.service_subscriber" />
+            <tag name="kernel.cache_warmer" priority="-1024" />
+            <argument type="service" id="Psr\Container\ContainerInterface" />
+        </service>
+
+        <service id="klipper_metadata.cache_factory"
+                 class="Klipper\Component\Metadata\CacheMetadataFactory"
+                 decorates="klipper_metadata.factory">
+            <argument type="service" id="klipper_metadata.cache_factory.inner"/>
+            <argument type="collection">
+                <argument key="cache_dir">%kernel.cache_dir%/metadatas</argument>
+                <argument key="debug">%kernel.debug%</argument>
+            </argument>
+            <call method="setConfigCacheFactory">
+                <argument type="service" id="config_cache_factory" />
+            </call>
+        </service>
+    </services>
+
+</container>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="klipper_metadata.registry" class="Klipper\Component\Metadata\MetadataRegistry" public="true">
+            <argument type="collection"/>
+            <argument type="collection"/>
+            <argument type="collection"/>
+        </service>
+
+        <service id="klipper_metadata.factory" class="Klipper\Component\Metadata\MetadataFactory" public="false">
+            <argument type="service" id="klipper_metadata.registry"/>
+            <argument type="service" id="klipper_resource.domain_manager"/>
+        </service>
+
+        <service id="klipper_metadata.manager" class="Klipper\Component\Metadata\MetadataManager" public="true">
+            <argument type="service" id="klipper_metadata.factory"/>
+        </service>
+
+        <service id="klipper_metadata.guess.default_action" class="Klipper\Component\Metadata\Guess\GuessDefaultAction" public="false">
+            <tag name="klipper_metadata.guess" priority="-999"/>
+        </service>
+
+        <service id="klipper_metadata.guess.default" class="Klipper\Component\Metadata\Guess\GuessDefault" public="false">
+            <tag name="klipper_metadata.guess" priority="-1000"/>
+            <argument type="collection"/>
+            <argument type="service" id="property_accessor"/>
+        </service>
+
+        <service id="klipper_metadata.guess.final" class="Klipper\Component\Metadata\Guess\GuessFinal" public="false">
+            <tag name="klipper_metadata.guess" priority="-1500"/>
+        </service>
+
+        <service id="Klipper\Component\Metadata\MetadataRegistry" alias="klipper_metadata.registry"/>
+        <service id="Klipper\Component\Metadata\MetadataRegistryInterface" alias="klipper_metadata.registry"/>
+
+        <service id="Klipper\Component\Metadata\MetadataFactory" alias="klipper_metadata.factory"/>
+        <service id="Klipper\Component\Metadata\MetadataFactoryInterface" alias="klipper_metadata.factory"/>
+
+        <service id="Klipper\Component\Metadata\MetadataManager" alias="klipper_metadata.manager"/>
+        <service id="Klipper\Component\Metadata\MetadataManagerInterface" alias="klipper_metadata.manager"/>
+    </services>
+
+</container>

@@ -1,0 +1,7 @@
+Klipper\Component\Metadata\View\ViewAssociationMetadata:
+    exclusion_policy: ALL
+    properties:
+        target:
+            groups: [Default]
+        masterDetails:
+            groups: [Default]

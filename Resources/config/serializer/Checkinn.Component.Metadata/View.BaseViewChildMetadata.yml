@@ -1,0 +1,21 @@
+Klipper\Component\Metadata\View\BaseViewChildMetadata:
+    exclusion_policy: ALL
+    properties:
+        name:
+            groups: [Default]
+        type:
+            groups: [Default]
+        input:
+            groups: [Default]
+        inputConfig:
+            groups: [Default]
+        label:
+            groups: [Default]
+        description:
+            groups: [Default]
+        readOnly:
+            groups: [Default]
+        required:
+            groups: [Default]
+        editablePermissions:
+            groups: [Default]

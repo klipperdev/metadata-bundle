@@ -1,0 +1,11 @@
+Klipper\Component\Metadata\View\ViewFieldMetadata:
+    exclusion_policy: ALL
+    properties:
+        sortable:
+            groups: [Default]
+        filterable:
+            groups: [Default]
+        searchable:
+            groups: [Default]
+        translatable:
+            groups: [Default]

@@ -1,0 +1,37 @@
+Klipper\Component\Metadata\View\ViewMetadata:
+    exclusion_policy: ALL
+    properties:
+        name:
+            groups: [Default]
+        label:
+            groups: [Default]
+        description:
+            groups: [Default]
+        sortable:
+            groups: [Default]
+        multiSortable:
+            groups: [Default]
+        defaultSortable:
+            groups: [Default]
+        filterable:
+            groups: [Default]
+        searchable:
+            groups: [Default]
+        translatable:
+            groups: [Default]
+        availableContexts:
+            groups: [Default]
+        fieldIdentifier:
+            groups: [Default]
+        fieldLabel:
+            groups: [Default]
+        editablePermissions:
+            groups: [Default]
+        master:
+            groups: [Default]
+        availableActions:
+            groups: [Default]
+        fields:
+            groups: [MetadataDetails]
+        associations:
+            groups: [MetadataDetails]
