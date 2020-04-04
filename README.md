@@ -6,7 +6,7 @@ The Metadata bundle provides to simply expose the model metadatas.
 Features include:
 
 - All features of [Klipper Metadata](https://github.com/klipperdev/metadata)
-- Configurator of all Klipper Metadata features
+- Configurator for Symfony Framework Bundle
 - Compiler pass to inject service dependencies of custom metadata object builders
 - Compiler pass to inject service dependencies of custom metadata object loaders
 - Compiler pass to inject service dependencies of custom metadata guessers
