@@ -40,13 +40,12 @@ class KlipperMetadataExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $directory = __DIR__.'/../Resources/config';
-        $loader = new Loader\XmlFileLoader($container, new FileLocator($directory));
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('metadata.xml');
         $loader->load('metadata_listener.xml');
         $loader->load('cache.xml');
 
-        $this->loadMetadataManager($container, $config['objects'], $config['defaults'], $directory);
+        $this->loadMetadataManager($container, $config['objects'], $config['defaults']);
     }
 
     /**
@@ -55,12 +54,12 @@ class KlipperMetadataExtension extends Extension
      * @param ContainerBuilder $container The container
      * @param array            $metadatas The metadatas
      * @param array            $defaults  The defaults configuration of metadatas
-     * @param string           $directory The path of config directory
      */
-    private function loadMetadataManager(ContainerBuilder $container, array $metadatas, array $defaults, string $directory): void
+    private function loadMetadataManager(ContainerBuilder $container, array $metadatas, array $defaults): void
     {
         $container->getDefinition('klipper_metadata.guess.default')->replaceArgument(0, $this->cleanConfig($defaults));
         $metadatas = $this->cleanConfig($metadatas);
+        $configDir = $container->getParameter('kernel.project_dir').'/config';
 
         foreach ($metadatas as $class => $objectConfig) {
             $objectName = MetadataUtil::getObjectName($class);
@@ -105,7 +104,7 @@ class KlipperMetadataExtension extends Extension
                 ->setPublic(false)
                 ->addTag('klipper_metadata.object_builder')
                 ->addMethodCall('addResource', [
-                    new Definition(DirectoryResource::class, [$directory]),
+                    new Definition(DirectoryResource::class, [$configDir]),
                 ])
             ;
             $container->setDefinition('klipper_metadata.object_builder.'.$objectName, $oDef);
