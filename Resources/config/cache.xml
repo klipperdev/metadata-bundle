@@ -16,7 +16,7 @@
                  decorates="klipper_metadata.factory">
             <argument type="service" id="klipper_metadata.cache_factory.inner"/>
             <argument type="collection">
-                <argument key="cache_dir">%kernel.cache_dir%/metadatas</argument>
+                <argument key="cache_dir">%kernel.cache_dir%/klipper_metadata</argument>
                 <argument key="debug">%kernel.debug%</argument>
             </argument>
             <call method="setConfigCacheFactory">
