@@ -13,7 +13,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.4.0",
-        "symfony/framework-bundle": "^4.4.0",
+        "symfony/framework-bundle": "^5.1.0",
         "klipper/resource-bundle": "^2.0.0",
         "klipper/metadata": "^2.0.0"
     },
