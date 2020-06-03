@@ -23,9 +23,6 @@ class MetadataRegistryPass implements CompilerPassInterface
 {
     use PriorityTaggedServiceTrait;
 
-    /**
-     * {@inheritdoc}
-     */
     public function process(ContainerBuilder $container): void
     {
         if (!$container->hasDefinition('klipper_metadata.registry')) {
@@ -51,7 +48,7 @@ class MetadataRegistryPass implements CompilerPassInterface
      *
      * @return Reference[]
      */
-    protected function findTags(ContainerBuilder $container, $tag, array $list): array
+    protected function findTags(ContainerBuilder $container, string $tag, array $list): array
     {
         foreach ($this->findAndSortTaggedServices($tag, $container) as $service) {
             $list[] = $service;
