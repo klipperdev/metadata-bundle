@@ -7,6 +7,8 @@ Klipper\Component\Metadata\View\ViewMetadata:
             groups: [Default]
         label:
             groups: [Default]
+        pluralLabel:
+            groups: [Default]
         description:
             groups: [Default]
         sortable:
