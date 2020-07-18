@@ -3,6 +3,8 @@ Klipper\Component\Metadata\View\ViewMetadata:
     properties:
         name:
             groups: [Default]
+        pluralName:
+            groups: [Default]
         label:
             groups: [Default]
         description:
