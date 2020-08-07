@@ -33,6 +33,8 @@ Klipper\Component\Metadata\View\ViewMetadata:
             groups: [Default]
         master:
             groups: [Default]
+        deepSearchPaths:
+            groups: [Default]
         availableActions:
             groups: [Default]
         fields:

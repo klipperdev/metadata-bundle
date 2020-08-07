@@ -76,6 +76,7 @@ class KlipperMetadataExtension extends Extension
                 'setFieldLabel' => 'field_label',
                 'setFormType' => 'form_type',
                 'setFormOptions' => 'form_options',
+                'setDeepSearchPaths' => 'deep_search_paths',
                 'setGroups' => 'groups',
                 'setBuildDefaultActions' => 'build_default_actions',
             ]);
