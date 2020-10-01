@@ -9,6 +9,7 @@
             <argument type="collection"/>
             <argument type="collection"/>
             <argument type="collection"/>
+            <argument type="collection"/>
         </service>
 
         <service id="klipper_metadata.factory" class="Klipper\Component\Metadata\MetadataFactory" public="false">

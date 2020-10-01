@@ -37,6 +37,7 @@ class MetadataRegistryPass implements CompilerPassInterface
         $def->replaceArgument(0, $builders);
         $def->replaceArgument(1, $loaders);
         $def->replaceArgument(2, $guessers);
+        $def->replaceArgument(3, $this->getResolveTargets($container));
     }
 
     /**
@@ -55,5 +56,27 @@ class MetadataRegistryPass implements CompilerPassInterface
         }
 
         return $list;
+    }
+
+    /**
+     * Get the resolve target classes.
+     *
+     * @param ContainerBuilder $container The container
+     */
+    private function getResolveTargets(ContainerBuilder $container): array
+    {
+        $resolveTargets = [];
+
+        if ($container->hasDefinition('doctrine.orm.listeners.resolve_target_entity')) {
+            $def = $container->getDefinition('doctrine.orm.listeners.resolve_target_entity');
+
+            foreach ($def->getMethodCalls() as $call) {
+                if ('addResolveTargetEntity' === $call[0]) {
+                    $resolveTargets[$call[1][0]] = $call[1][1];
+                }
+            }
+        }
+
+        return $resolveTargets;
     }
 }
