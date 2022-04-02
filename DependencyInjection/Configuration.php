@@ -25,6 +25,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('klipper_metadata');
+
         /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
         $rootNode
@@ -41,6 +42,7 @@ class Configuration implements ConfigurationInterface
     private function getDefaultsNode(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder('defaults');
+
         /** @var ArrayNodeDefinition $node */
         $node = $treeBuilder->getRootNode();
         $node
@@ -77,6 +79,7 @@ class Configuration implements ConfigurationInterface
     private function getObjectsNode(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder('objects');
+
         /** @var ArrayNodeDefinition $node */
         $node = $treeBuilder->getRootNode();
         $node
@@ -136,6 +139,7 @@ class Configuration implements ConfigurationInterface
     private function getActionMetadatasNode(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder('actions');
+
         /** @var ArrayNodeDefinition $node */
         $node = $treeBuilder->getRootNode();
         $node
@@ -169,6 +173,7 @@ class Configuration implements ConfigurationInterface
     private function getActionMetadataNode(string $name = 'action'): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder($name);
+
         /** @var ArrayNodeDefinition $node */
         $node = $treeBuilder->getRootNode();
 
@@ -251,6 +256,7 @@ class Configuration implements ConfigurationInterface
     private function getFieldMetadatasNode(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder('fields');
+
         /** @var ArrayNodeDefinition $node */
         $node = $treeBuilder->getRootNode();
         $node
@@ -301,6 +307,7 @@ class Configuration implements ConfigurationInterface
     private function getAssociationMetadatasNode(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder('associations');
+
         /** @var ArrayNodeDefinition $node */
         $node = $treeBuilder->getRootNode();
         $node
