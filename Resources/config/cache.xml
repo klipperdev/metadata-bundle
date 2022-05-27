@@ -23,6 +23,20 @@
                 <argument type="service" id="config_cache_factory" />
             </call>
         </service>
+
+        <service id="klipper_metadata.subscriber.cache_configurations"
+                 class="Klipper\Component\Metadata\Listener\CacheConfigurations"
+                 decorates="klipper_metadata.subscriber.configurations">
+            <argument type="service" id="klipper_metadata.manager"/>
+            <argument type="service" id="klipper_metadata.subscriber.cache_configurations.inner"/>
+            <argument type="collection">
+                <argument key="cache_dir">%kernel.cache_dir%/klipper_metadata</argument>
+                <argument key="debug">%kernel.debug%</argument>
+            </argument>
+            <call method="setConfigCacheFactory">
+                <argument type="service" id="config_cache_factory" />
+            </call>
+        </service>
     </services>
 
 </container>

@@ -5,11 +5,23 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="klipper_metadata.subscriber.action_configurations"
-                 class="Klipper\Component\Metadata\Listener\ConfigurationsSubscriber"
-                 public="true">
-            <tag name="kernel.event_subscriber" />
+        <service
+            id="klipper_metadata.subscriber.configurations"
+            class="Klipper\Component\Metadata\Listener\Configurations"
+            public="true"
+        >
             <argument type="service" id="klipper_metadata.manager" />
+        </service>
+
+        <service id="Klipper\Component\Metadata\Listener\ConfigurationsInterface" alias="klipper_metadata.subscriber.configurations"/>
+
+        <service
+            id="klipper_metadata.subscriber.action_configurations"
+            class="Klipper\Component\Metadata\Listener\ConfigurationsSubscriber"
+            public="true"
+        >
+            <tag name="kernel.event_subscriber" />
+            <argument type="service" id="klipper_metadata.subscriber.configurations" />
         </service>
     </services>
 </container>
