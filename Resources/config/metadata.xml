@@ -36,7 +36,7 @@
         </service>
 
         <service id="klipper_metadata.guess.final_deep_search" class="Klipper\Component\Metadata\Guess\GuessFinalDeepSearch" public="false">
-            <tag name="klipper_metadata.guess" priority="-1600"/>
+            <tag name="klipper_metadata.guess" priority="-1800"/>
         </service>
 
         <service id="Klipper\Component\Metadata\MetadataRegistry" alias="klipper_metadata.registry"/>
